@@ -72,11 +72,14 @@ func shake_camera(intensity: float = 5.0) -> void:
 	if tween:
 		tween.kill()
 	tween = create_tween()
-	tween.tween_method(
-		func(t: float):
+	var shake_count: int = 10
+	for i in range(shake_count):
+		var t = float(i) / float(shake_count)
+		tween.tween_callback(func():
 			camera.offset.x = sin(t * 20) * intensity * randf()
 			camera.offset.y = cos(t * 20) * intensity * randf()
-		, 0.0, 1.0, 0.5)
+		)
+		tween.tween_interval(0.05)
 	tween.tween_callback(func():
 		camera.offset = orig_offset
 	)
