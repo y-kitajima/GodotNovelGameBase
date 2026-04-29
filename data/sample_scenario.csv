@@ -1,0 +1,11 @@
+id,speaker,text,next,choices,effects
+start,ナレーター,やあ、ビジュアルノベルテンプレートだよ！,line2,,
+line2,ヒロイン,ここにシナリオを追加してください。,line3,,
+line3,,素敵な物語を。,choice1,,
+choice1,選択,どちらに進む？,,"[{""text"":""左の道"",""next"":""left""},{""text"":""右の道"",""next"":""right""}]",
+left,ナレーター,左の道には宝物があった。,effect_bg,,
+right,ナレーター,右の道は長く続いている。,effect_bg,,
+effect_bg,ナレーター,"背景を森に変更します。",effect_char,,"{""bg"":""res://assets/bg_forest.png"",""bg_fade"":1.0}"
+effect_char,ナレーター,"キャラクター「アリス」が登場します。",effect_transition,,"{""char"":""res://assets/chara_alice.png"",""char_position"":{""x"":200,""y"":150}}"
+effect_transition,ナレーター,"画面が暗転します。",effect_shake,,"{""transition"":""fade""}"
+effect_shake,ナレーター,"カメラが揺れます！",,,"{""shake"":10.0}"

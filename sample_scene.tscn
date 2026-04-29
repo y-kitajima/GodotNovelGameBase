@@ -1,0 +1,236 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://main.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/scenario_data.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/dialogue_player.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/auto_skip_manager.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/log_manager.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/config.gd" id="6"]
+[ext_resource type="Script" path="res://scripts/choice_manager.gd" id="7"]
+[ext_resource type="Script" path="res://scripts/backlog_viewer.gd" id="8"]
+[ext_resource type="Script" path="res://scripts/config_menu.gd" id="9"]
+[ext_resource type="Script" path="res://scripts/sound_manager.gd" id="10"]
+[ext_resource type="Script" path="res://scripts/effect_manager.gd" id="11"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1")
+
+[node name="ScenarioData" type="Node" parent="."]
+script = ExtResource("2")
+
+[node name="DialoguePlayer" type="Node" parent="."]
+script = ExtResource("3")
+
+[node name="AutoSkipManager" type="Node" parent="."]
+script = ExtResource("4")
+
+[node name="LogManager" type="Node" parent="."]
+script = ExtResource("5")
+
+[node name="Config" type="Node" parent="."]
+script = ExtResource("6")
+
+[node name="ChoiceManager" type="Node" parent="."]
+script = ExtResource("7")
+
+[node name="SoundManager" type="Node" parent="."]
+script = ExtResource("10")
+
+[node name="EffectManager" type="Node" parent="."]
+script = ExtResource("11")
+
+[node name="BackgroundLayer" type="Node2D" parent="."]
+
+[node name="BackgroundSprite" type="Sprite2D" parent="BackgroundLayer"]
+
+[node name="CharacterSprite" type="Sprite2D" parent="BackgroundLayer"]
+
+[node name="Camera2D" type="Camera2D" parent="BackgroundLayer"]
+
+[node name="BacklogViewer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+script = ExtResource("8")
+[node name="ScrollContainer" type="ScrollContainer" parent="BacklogViewer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="BacklogViewer/ScrollContainer"]
+layout_mode = 2
+[node name="CloseButton" type="Button" parent="BacklogViewer"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 100.0
+offset_bottom = 40.0
+text = "閉じる"
+
+[node name="ConfigMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+script = ExtResource("9")
+[node name="CloseButton" type="Button" parent="ConfigMenu"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 100.0
+offset_bottom = 40.0
+text = "閉じる"
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfigMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+[node name="TextSpeedSlider" type="HSlider" parent="ConfigMenu/VBoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 10.0
+step = 0.5
+value = 5.0
+[node name="AutoDelaySlider" type="HSlider" parent="ConfigMenu/VBoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 10.0
+step = 0.5
+value = 2.0
+[node name="VolumeSlider" type="HSlider" parent="ConfigMenu/VBoxContainer"]
+layout_mode = 2
+min_value = 0.0
+max_value = 100.0
+step = 5.0
+value = 100.0
+[node name="ApplyButton" type="Button" parent="ConfigMenu/VBoxContainer"]
+layout_mode = 2
+text = "適用"
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpeakerLabel" type="Label" parent="UI"]
+layout_mode = 2
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.1
+anchor_bottom = 0.1
+offset_left = -100.0
+offset_top = -20.0
+offset_right = 100.0
+offset_bottom = 20.0
+text = "話者"
+
+[node name="DialogueTextLabel" type="Label" parent="UI"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -20.0
+offset_right = 200.0
+offset_bottom = 20.0
+text = "ここにテキストが表示されます。"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NextButton" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "次へ"
+
+[node name="AutoButton" type="CheckButton" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "オート"
+button_pressed = false
+
+[node name="SkipButton" type="CheckButton" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "スキップ"
+button_pressed = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_bottom = 0.0
+grow_vertical = 0
+
+[node name="BacklogButton" type="Button" parent="UI/HBoxContainer"]
+layout_mode = 2
+text = "ログ"
+
+[node name="ConfigButton" type="Button" parent="UI/HBoxContainer"]
+layout_mode = 2
+text = "設定"
+
+[node name="ChoiceContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -50.0
+offset_right = 200.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+
+[node name="FadeOverlay" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+visible = false

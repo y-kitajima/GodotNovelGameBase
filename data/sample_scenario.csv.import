@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cclfj0seqxrob"
+
+[deps]
+
+files=["res://data/sample_scenario.speaker.translation", "res://data/sample_scenario.text.translation", "res://data/sample_scenario.next.translation", "res://data/sample_scenario.choices.translation", "res://data/sample_scenario.effects.translation"]
+
+source_file="res://data/sample_scenario.csv"
+dest_files=["res://data/sample_scenario.speaker.translation", "res://data/sample_scenario.text.translation", "res://data/sample_scenario.next.translation", "res://data/sample_scenario.choices.translation", "res://data/sample_scenario.effects.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

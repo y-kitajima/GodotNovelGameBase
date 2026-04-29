@@ -1,0 +1,83 @@
+{
+  "title": "サンプルシナリオ",
+  "lines": [
+    {
+      "id": "start",
+      "speaker": "ナレーター",
+      "text": "やあ、ビジュアルノベルテンプレートだよ！",
+      "next": "line2"
+    },
+    {
+      "id": "line2",
+      "speaker": "ヒロイン",
+      "text": "ここにシナリオを追加してください。",
+      "next": "line3"
+    },
+    {
+      "id": "line3",
+      "speaker": "",
+      "text": "素敵な物語を。",
+      "next": "choice1"
+    },
+    {
+      "id": "choice1",
+      "speaker": "選択",
+      "text": "どちらに進む？",
+      "choices": [
+        {"text": "左の道", "next": "left"},
+        {"text": "右の道", "next": "right"}
+      ],
+      "next": ""
+    },
+    {
+      "id": "left",
+      "speaker": "ナレーター",
+      "text": "左の道には宝物があった。",
+      "next": "effect_bg"
+    },
+    {
+      "id": "right",
+      "speaker": "ナレーター",
+      "text": "右の道は長く続いている。",
+      "next": "effect_bg"
+    },
+    {
+      "id": "effect_bg",
+      "speaker": "ナレーター",
+      "text": "背景を森に変更します。",
+      "next": "effect_char",
+      "effects": {
+        "bg": "res://assets/bg_forest.png",
+        "bg_fade": 1.0
+      }
+    },
+    {
+      "id": "effect_char",
+      "speaker": "ナレーター",
+      "text": "キャラクター「アリス」が登場します。",
+      "next": "effect_transition",
+      "effects": {
+        "char": "res://assets/chara_alice.png",
+        "char_position": {"x": 200, "y": 150}
+      }
+    },
+    {
+      "id": "effect_transition",
+      "speaker": "ナレーター",
+      "text": "画面が暗転します。",
+      "next": "effect_shake",
+      "effects": {
+        "transition": "fade"
+      }
+    },
+    {
+      "id": "effect_shake",
+      "speaker": "ナレーター",
+      "text": "カメラが揺れます！",
+      "next": "",
+      "effects": {
+        "shake": 10.0
+      }
+    }
+  ]
+}
