@@ -1,0 +1,2 @@
+# GodotNovelGameBase
+Godot使ったノベルゲームのベース
